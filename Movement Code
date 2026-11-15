@@ -1,0 +1,31 @@
+// 1. Check Left and Right Inputs
+var _right = keyboard_check(vk_right) || keyboard_check(ord("D"));
+var _left  = keyboard_check(vk_left)  || keyboard_check(ord("A"));
+
+// Calculate horizontal speed (-4 for left, +4 for right, 0 for stopped)
+x_speed = (_right - _left) * move_speed;
+
+// 2. Apply Gravity (pulls the player downward every frame)
+y_speed = y_speed + grav;
+
+// 3. Check Jump (only if standing on top of obj_wall!)
+if (place_meeting(x, y + 1, obj_wall)) {
+    if (keyboard_check_pressed(vk_space)) {
+        y_speed = jump_power;
+    }
+}
+
+// 4. Move and Stop at Solid Walls (Built-in GameMaker function!)
+move_and_collide(x_speed, y_speed, obj_wall);
+
+// 5. Reset vertical speed when touching the floor or ceiling
+if (place_meeting(x, y + 1, obj_wall) || place_meeting(x, y - 1, obj_wall)) {
+    y_speed = 0;
+}
+
+
+This is movement code!
+
+
+
+
