@@ -1,0 +1,2 @@
+Place the single sprite on frame 1, add a keyframe for position/rotation, move down the timeline (e.g., 2 seconds ahead), 
+move the sprite to a new spot, and let the software interpolate the movement in between.
